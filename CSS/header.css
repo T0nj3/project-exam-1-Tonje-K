@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: "JetBrains Mono", monospace;;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #222;
+    background-color: #fdfdfd;
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+}
+
+h1 {
+    margin-right: auto;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+    color: slategray;
+}
+
+.hamburger,
+.side-menu {
+    display: none;
+}
+
+
+@media (max-width: 700px) {
+    .menu {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+        margin-left: auto;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background-color: black;
+    }
+
+    .side-menu {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -250px;
+        width: 250px;
+        height: 100%;
+        background-color: white;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+        padding: 20px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+    }
+
+    .side-menu a {
+        padding: 10px 0;
+        color: black;
+        text-decoration: none;
+        font-size: 1.2rem;
+    }
+
+    .side-menu a:hover {
+        color: slategray;
+    }
+
+    .close {
+        font-size: 1.5rem;
+        font-weight: bold;
+        cursor: pointer;
+        align-self: flex-end;
+    }
+
+    .side-menu.open {
+        right: 0;
+    }
+}

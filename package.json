@@ -1,0 +1,12 @@
+{
+  "name": "fed1-pe1-t0nj3",
+  "version": "1.0.0",
+  "description": "Use this file to describe your project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
