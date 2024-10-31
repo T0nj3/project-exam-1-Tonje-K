@@ -8,7 +8,7 @@ let filteredPosts = [];
 async function fetchAllPosts() {
   try {
     allPosts = await fetchPosts();
-    filteredPosts = allPosts; 
+    filteredPosts = allPosts;
     displayPosts();
   } catch (error) {
     console.error("Error fetching posts:", error);
@@ -34,13 +34,12 @@ function displayPosts() {
     const postElement = document.createElement('div');
     postElement.classList.add('blog-post');
     postElement.innerHTML = `
-    postElement.innerHTML = `
-    <a href="../HTML/one-post.html?id=${post.id}">
-        <img src="${post.media.url}" alt="${post.media.alt}">
-        <h2>${post.title}</h2>
-        <p>${post.shortDescription}</p>
-    </a>
-`;
+      <a href="../HTML/one-post.html?id=${post.id}">
+          <img src="${post.media.url}" alt="${post.media.alt}">
+          <h2>${post.title}</h2>
+          <p>${post.shortDescription}</p>
+      </a>
+    `;
     blogContainer.appendChild(postElement);
   });
 
@@ -69,20 +68,19 @@ function applyFilter(filterType) {
   } else if (filterType === "popular") {
     filteredPosts = allPosts.slice().sort((a, b) => b.popularity - a.popularity);
   }
-  currentPage = 1; 
+  currentPage = 1;
   displayPosts();
 }
 
 function applyContinentFilter(continent) {
   if (continent === "See all") {
-    filteredPosts = allPosts; // Vis alle innlegg
+    filteredPosts = allPosts;
   } else {
     filteredPosts = allPosts.filter(post => post.continent === continent);
   }
-  currentPage = 1; 
+  currentPage = 1;
   displayPosts();
 }
-
 
 fetchAllPosts();
 
@@ -99,18 +97,16 @@ document.querySelectorAll(".filter-options p").forEach(option => {
     const filterType = this.getAttribute("data-filter");
     applyFilter(filterType);
 
-    
     document.getElementById("filterOptions").style.display = "none";
   });
 });
-
 
 document.querySelectorAll(".filter-section .filter-btn").forEach(button => {
   button.addEventListener("click", function () {
     document.querySelectorAll(".filter-section .filter-btn").forEach(btn => btn.classList.remove("active"));
     this.classList.add("active");
 
-    const continent = this.textContent.trim(); 
+    const continent = this.textContent.trim();
     applyContinentFilter(continent);
   });
 });
